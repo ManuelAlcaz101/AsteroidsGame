@@ -25,12 +25,13 @@ void draw() {
 
 void keyPressed() {
     if (key == 'w') { // Accelerate
-        ship.accelerate();
+        ship.accelerate(0.1);
     } else if (key == 'a') { // Turn left
-        ship.turnLeft();
+        ship.turn(-5);
     } else if (key == 'd') { // Turn right
-        ship.turnRight();
+        ship.turn(5);
     } else if (key == 'h') { // Hyperspace
         ship.hyperspace();
     }
 }
+
