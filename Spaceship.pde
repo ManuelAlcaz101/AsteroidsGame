@@ -1,23 +1,21 @@
 class Spaceship extends Floater {
-    // Constructor
     public Spaceship() {
-        corners = 3; // Triangular spaceship
-        xCorners = new int[] { -10, 10, -10 }; // X coordinates for vertices
-        yCorners = new int[] { -10, 0, 10 };  // Y coordinates for vertices
-        myColor = color(255, 255, 255); // White color
-        myCenterX = width / 2; // Start at center of the screen
+        corners = 3; 
+        xCorners = new int[] { -10, 10, -10 };
+        yCorners = new int[] { -10, 0, 10 }; 
+        myColor = color(255, 255, 255); 
+        myCenterX = width / 2; 
         myCenterY = height / 2;
-        myXspeed = 0; // Initially stationary
+        myXspeed = 0; 
         myYspeed = 0;
-        myPointDirection = 0; // Facing right
+        myPointDirection = 0; 
     }
 
-    // Hyperspace: Move to a random position and stop moving
     public void hyperspace() {
         myCenterX = Math.random() * width;
         myCenterY = Math.random() * height;
         myXspeed = 0;
         myYspeed = 0;
-        myPointDirection = Math.random() * 360; // Random direction
+        myPointDirection = Math.random() * 360;
     }
 }
