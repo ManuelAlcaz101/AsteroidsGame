@@ -1,38 +1,38 @@
 class Asteroid extends Floater {
-    private double rotationSpeed;
+        private double rotationSpeed;
 
-    public Asteroid() {
-        corners = 6; 
-        xCorners = new int[] { -20, -10, 10, 20, 10, -10 }; 
-        yCorners = new int[] { 0, -20, -20, 0, 20, 20 };
-        myColor = color(100, 100, 100);
-        myCenterX = Math.random() * width;
-        myCenterY = Math.random() * height;
-        myXspeed = Math.random() * 2 - 1; 
-        myYspeed = Math.random() * 2 - 1; 
-        myPointDirection = Math.random() * 360;
-        rotationSpeed = Math.random() * 2 - 1; 
-    }
-
-    @Override
-    public void move() {
-        super.move();
-        myPointDirection += rotationSpeed;
-    }
-
-    @Override
-    public void show() {
-        fill(myColor);
-        stroke(0);
-        translate((float) myCenterX, (float) myCenterY);
-        rotate((float) (myPointDirection * Math.PI / 180));
-
-        beginShape();
-        for (int i = 0; i < corners; i++) {
-            vertex(xCorners[i], yCorners[i]);
+        public Asteroid() {
+            myCenterX = Math.random() * width;
+            myCenterY = Math.random() * height;
+            myXspeed = Math.random() * 2 - 1;
+            myYspeed = Math.random() * 2 - 1;
+            myPointDirection = Math.random() * 360;
+            rotationSpeed = Math.random() * 2 - 1;
         }
-        endShape(CLOSE);
 
-        resetMatrix(); 
+        @Override
+        public void move() {
+            super.move();
+            myPointDirection += rotationSpeed;
+        }
+
+        @Override
+        public void show() {
+            pushMatrix();
+            translate((float) myCenterX, (float) myCenterY);
+            rotate(radians((float) myPointDirection));
+            fill(150);
+            stroke(255);
+            beginShape();
+            vertex(-20, -10);
+            vertex(-10, -20);
+            vertex(10, -20);
+            vertex(20, -10);
+            vertex(20, 10);
+            vertex(10, 20);
+            vertex(-10, 20);
+            vertex(-20, 10);
+            endShape(CLOSE);
+            popMatrix();
+        }
     }
-}
