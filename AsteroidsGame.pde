@@ -2,7 +2,7 @@ Spaceship ship;
 ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 
 void setup() {
-    size(500, 500);
+    size(500, 500); 
     ship = new Spaceship();
     for (int i = 0; i < 5; i++) {
         asteroids.add(new Asteroid());
@@ -13,10 +13,12 @@ void draw() {
     background(0);
     ship.show();
     ship.move();
+    
     for (Asteroid a : asteroids) {
         a.show();
         a.move();
         a.rotate();
+        
         if (dist(a.myCenterX, a.myCenterY, ship.myCenterX, ship.myCenterY) < 20) {
             asteroids.remove(a);
         }
