@@ -4,7 +4,6 @@ ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 void setup() {
     size(500, 500);
     ship = new Spaceship();
-    // Create 5 asteroids with random positions and movement
     for (int i = 0; i < 5; i++) {
         asteroids.add(new Asteroid());
     }
