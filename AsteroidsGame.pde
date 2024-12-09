@@ -47,7 +47,7 @@ void keyPressed() {
 void checkCollisions() {
     for (int i = asteroids.size() - 1; i >= 0; i--) {
         Asteroid a = asteroids.get(i);
-        if (dist((float) ship.myCenterX, (float) ship.myCenterY, (float) a.myCenterX, (float) a.myCenterY) < 40) { // Adjusted collision radius for larger asteroids
+        if (dist((float) ship.myCenterX, (float) ship.myCenterY, (float) a.myCenterX, (float) a.myCenterY) < 40) {
             asteroids.remove(i); 
         }
     }
