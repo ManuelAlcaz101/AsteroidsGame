@@ -15,7 +15,6 @@ class Spaceship extends Floater {
         myPointDirection = 0;
     }
 
-    @Override
     public void show() {
         pushMatrix();
         translate((float) myCenterX, (float) myCenterY);
