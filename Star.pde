@@ -7,7 +7,7 @@ class Star {
     }
 
     public void show() {
-        stroke(255); // White stars
+        stroke(255); 
         point(x, y);
     }
 }
