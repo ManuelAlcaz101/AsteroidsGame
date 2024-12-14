@@ -5,6 +5,7 @@ ArrayList<Bullet> bullets;  // To store bullets
 
 void setup() {
     size(500, 500);
+    bullets = new ArrayList<Bullet>();
     ship = new Spaceship();
     stars = new Star[100];
     asteroids = new ArrayList<Asteroid>();
@@ -66,7 +67,7 @@ void keyPressed() {
         ship.hyperspace();  // Close the 'if' block correctly here
     } else if (key == ' ') {  // Fire a bullet when the spacebar is pressed
         double bulletSpawnX = ship.myCenterX + Math.cos(Math.toRadians(ship.myPointDirection)) * 10;
-        double bulletSpawnY = ship.myCenterY + Math.sin(Math.toRadians(ship.myPointDirection)) * 20;
+        double bulletSpawnY = ship.myCenterY + Math.sin(Math.toRadians(ship.myPointDirection)) * 10;
         bullets.add(new Bullet(bulletSpawnX, bulletSpawnY, ship.myPointDirection, ship.myXspeed, ship.myYspeed));
     }
 }  // Ensure the method ends properly
