@@ -21,6 +21,8 @@ void setup() {
 
 void draw() {
     background(0);  // Black space background
+
+    // Display stars
     for (Star s : stars) {
         s.show();
     }
@@ -48,6 +50,7 @@ void draw() {
         }
     }
 
+    // Display and move the ship
     ship.show();
     ship.move();
 
@@ -63,18 +66,13 @@ void keyPressed() {
     } else if (key == 'd') { 
         ship.turn(5);
     } else if (key == 'h') { 
-        ship.hyperspace();  // Close the 'if' block correctly here
+        ship.hyperspace();  // Teleport ship to a random position
     } else if (key == ' ') {  // Fire a bullet when the spacebar is pressed
         double bulletSpawnX = ship.myCenterX + Math.cos(Math.toRadians(ship.myPointDirection)) * 10;
         double bulletSpawnY = ship.myCenterY + Math.sin(Math.toRadians(ship.myPointDirection)) * 10;
         bullets.add(new Bullet(bulletSpawnX, bulletSpawnY, ship.myPointDirection, ship.myXspeed, ship.myYspeed));
     }
-}  // Ensure the method ends properly
-
-
-
-
-
+}
 
 // Collision detection: Check if the ship collides with any asteroid
 void checkCollisions() {
@@ -82,6 +80,7 @@ void checkCollisions() {
         Asteroid a = asteroids.get(i);
         if (dist((float) ship.myCenterX, (float) ship.myCenterY, (float) a.myCenterX, (float) a.myCenterY) < 40) { // Adjusted collision radius for larger asteroids
             asteroids.remove(i);  // Remove the asteroid if it collides with the ship
+            // Handle ship damage or game over logic here, if necessary
         }
     }
 }
