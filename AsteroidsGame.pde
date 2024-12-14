@@ -5,7 +5,6 @@ ArrayList<Bullet> bullets;  // To store bullets
 
 void setup() {
     size(500, 500);
-    bullets = new ArrayList<Bullet>();
     ship = new Spaceship();
     stars = new Star[100];
     asteroids = new ArrayList<Asteroid>();
